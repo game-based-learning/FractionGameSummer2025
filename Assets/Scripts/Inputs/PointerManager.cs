@@ -8,7 +8,6 @@ namespace FractionGame.Inputs
     public class PointerManager : MonoBehaviour
     {
         private Camera mainCamera;
-        private InputSystem_Actions inputActions;
         private InputAction click;
 
         private GameObject attached = null;
@@ -16,8 +15,11 @@ namespace FractionGame.Inputs
         void Awake()
         {
             mainCamera = Camera.main;
-            inputActions = new InputSystem_Actions();
-            click = inputActions.UI.Click;
+        }
+
+        public void Initialize(InputAction click)
+        {
+            this.click = click;
         }
 
         private void OnEnable()
